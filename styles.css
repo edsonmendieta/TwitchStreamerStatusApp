@@ -50,7 +50,7 @@ body {
     background-color: #3FDD90;
 }
 
-.wikiResult {
+.twitchResult {
     height: auto;
     margin-right: 0;
     margin-left: 6.5px;
@@ -63,13 +63,13 @@ body {
     text-decoration: none;
 }
 
-.title, .intro {
+.username, .streamInfo {
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 15px;
     color: white;
 }
 
-.intro {
+.streamInfo {
     padding-bottom: 15px;
 }
