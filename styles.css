@@ -43,11 +43,11 @@ body {
     margin-left: 10%;
     margin-bottom: 0;
     border-bottom: 1px white solid;
+    background-color: #3FDD90;
 }
 
 .resultContainer:hover {
-    /*background-color: #DAF7A6;*/
-    background-color: #3FDD90;
+
 }
 
 .twitchResult {

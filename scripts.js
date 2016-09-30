@@ -22,10 +22,10 @@ console.log('hello!');
 
          console.log(streamerName);
 
-        // if(response.stream == null) {
-        //
-        //
-        // }
+        if(response.stream == null) {
+
+            document.getElementById(streamerName).parentNode.style.backgroundColor = "#F55D5D";
+        }
      }
  }
 
@@ -38,9 +38,9 @@ xhr.onreadystatechange = twitchInfo;
 xhr.send();
 
 
-//test API request: castro_102
+//test API request: castro_1021
 var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://api.twitch.tv/kraken/streams/castro_102/?client_id=mlrx1e94dg7yus5yqm26lwpyxrg9j9x');
+xhr.open('GET', 'https://api.twitch.tv/kraken/streams/castro_1021/?client_id=mlrx1e94dg7yus5yqm26lwpyxrg9j9x');
 xhr.onreadystatechange = twitchInfo;
 xhr.send();
 
