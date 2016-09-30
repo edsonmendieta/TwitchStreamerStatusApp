@@ -18,13 +18,22 @@ console.log('hello!');
          //variables
          var streamerName = match[1];
 
+         // just for reference - - - - - - - - - - - -
          console.log(JSON.parse(this.response));
 
          console.log(streamerName);
+         // - - - - - - - - - - - - - - - - - - - - - -
 
         if(response.stream == null) {
 
+            //variables
+            var offlineText = document.createTextNode('offline');
+
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#F55D5D";
+            // document.getElementById(streamerName).childNodes[1].appendChild(offlineText);
+
+            console.log(document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText));
+
         }
      }
  }
