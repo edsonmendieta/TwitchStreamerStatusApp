@@ -3,20 +3,29 @@ console.log('hello!');
 
 // my Twitch client ID : mlrx1e94dg7yus5yqm26lwpyxrg9j9x
 
- // var xhr = new XMLHttpRequest();
- // xhr.open('GET', 'https://api.twitch.tv/kraken/streams/?channel=charionna,castro_102,kinggothalion,lpmassive,drlupo,exu_kefir,luminosity,montanablack88,realkraftyy,diehahn&client_id=mlrx1e94dg7yus5yqm26lwpyxrg9j9x');
- // xhr.onreadystatechange = twitchInfo;
- // xhr.send();
+
 
  function twitchInfo() {
 
+     //variables
      var response = JSON.parse(this.response);
+     var myRe = /channels\/(.*)/;
+     var string = JSON.parse(this.response)._links.channel;
+     var match = myRe.exec(string);
 
      if(this.readyState == 4 && this.status == 200) {
 
-         //console.log(JSON.parse(this.response));
+         //variables
+         var streamerName = match[1];
 
+         console.log(JSON.parse(this.response));
 
+         console.log(streamerName);
+
+        // if(response.stream == null) {
+        //
+        //
+        // }
      }
  }
 
