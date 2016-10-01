@@ -1,7 +1,23 @@
-console.log('hello!');
+console.log('hello');
 
 
 // my Twitch client ID : mlrx1e94dg7yus5yqm26lwpyxrg9j9x
+
+
+function callSuccessChecker() {
+
+    for (i = 0; i < 10; i++) {
+
+        var allContainers = document.getElementsByClassName('resultContainer');
+        var closedText = document.createTextNode('account closed');
+
+        if(allContainers[i].style.backgroundColor == '#F5D16B') {
+
+            allContainers[0].children[0].children[0].children[1].appendChild(closedText);
+        }
+    }
+}
+
 
 
 
@@ -13,6 +29,13 @@ console.log('hello!');
      var string = JSON.parse(this.response)._links.channel;
      var match = myRe.exec(string);
 
+    //  if(this.readyState == 4 && this.status !== 200) {
+     //
+    //      alert('WHAAAAAAAAt?');
+    //  }
+
+
+     // if request SUCCESSFUL
      if(this.readyState == 4 && this.status == 200) {
 
          //variables
@@ -24,16 +47,28 @@ console.log('hello!');
          console.log(streamerName);
          // - - - - - - - - - - - - - - - - - - - - - -
 
+         // if streamer is OFFLINE
         if(response.stream == null) {
 
             //variables
             var offlineText = document.createTextNode('offline');
 
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#F55D5D";
-            // document.getElementById(streamerName).childNodes[1].appendChild(offlineText);
 
-            console.log(document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText));
+            document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+        }
+
+        // if streamer is ONLINE
+        else if(response.stream !== null) {
+
+            //variables
+            var streamDetailsProperty = 'status'; //status is a keyword...
+            var streamDetails = document.createTextNode(response.stream.channel[streamDetailsProperty]);
+
+            document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
+
+            document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
         }
      }
  }
@@ -100,3 +135,7 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://api.twitch.tv/kraken/streams/diehahn/?client_id=mlrx1e94dg7yus5yqm26lwpyxrg9j9x');
 xhr.onreadystatechange = twitchInfo;
 xhr.send();
+
+
+
+// callSuccessChecker();

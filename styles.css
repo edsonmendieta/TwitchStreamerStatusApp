@@ -43,7 +43,7 @@ body {
     margin-left: 10%;
     margin-bottom: 0;
     border-bottom: 1px white solid;
-    background-color: #3FDD90;
+    background-color: #F5D16B;
 }
 
 .resultContainer:hover {
@@ -54,9 +54,11 @@ body {
     height: auto;
     margin-right: 0;
     margin-left: 6.5px;
-    /*background-color: #F4F6F6;*/
-    /*background-color: #595B5B;*/
     background-color: #4F5151;
+}
+
+.twitchResult:hover {
+    background-color: #767979;
 }
 
 .link {
