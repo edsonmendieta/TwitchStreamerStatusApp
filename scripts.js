@@ -6,10 +6,10 @@ console.log('hello');
 
 function callSuccessChecker() {
 
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 10; i++) {// <--------not working YET
 
         var allContainers = document.getElementsByClassName('resultContainer');
-        var closedText = document.createTextNode('account closed');
+        var closedText = document.createTextNode('closed');
 
         if(allContainers[i].style.backgroundColor == '#F5D16B') {
 
@@ -23,22 +23,27 @@ function callSuccessChecker() {
 
  function twitchInfo() {
 
-     //variables
-     var response = JSON.parse(this.response);
-     var myRe = /channels\/(.*)/;
-     var string = JSON.parse(this.response)._links.channel;
-     var match = myRe.exec(string);
-
-    //  if(this.readyState == 4 && this.status !== 200) {
-     //
-    //      alert('WHAAAAAAAAt?');
-    //  }
 
 
-     // if request SUCCESSFUL
+     // request NOT succesful
+     if(this.readyState == 4 && this.status !== 200) {
+
+         console.log('This is working');
+
+         callSuccessChecker();
+     }
+
+
+     //request SUCCESSFUL
      if(this.readyState == 4 && this.status == 200) {
 
          //variables
+         var response = JSON.parse(this.response);
+         var myRe = /channels\/(.*)/;
+         var string = JSON.parse(this.response)._links.channel;
+         var match = myRe.exec(string);
+
+         //dependent variable
          var streamerName = match[1];
 
          // just for reference - - - - - - - - - - - -
@@ -74,6 +79,12 @@ function callSuccessChecker() {
  }
 
 
+
+ //test API request: 404 response
+ var xhr = new XMLHttpRequest();
+ xhr.open('GET', 'https://api.twitch.tv/kraken/streams/comster404/?client_id=mlrx1e94dg7yus5yqm26lwpyxrg9j9x');
+ xhr.onreadystatechange = twitchInfo;
+ xhr.send();
 
 //test API request: charionna
 var xhr = new XMLHttpRequest();
