@@ -37,6 +37,51 @@ body {
     margin-bottom: 0;
 }
 
+.headerContainer {
+    display: flex;
+    justify-content: space-around;
+    height: 85px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 0;
+    border-bottom: 1px white solid;
+    background-color: #F5D16B;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+#all {
+    display: inline-block;
+    width: 33.33%;
+    height: 85px;
+    background-color: #4CC1D5;
+    border-right: 1px white solid;
+    border-top-left-radius: 50px;
+}
+
+#online {
+    display: inline-block;
+    width: 33.33%;
+    height: 85px;
+    background-color: #3FDD90;
+    border-right: 1px white solid;
+}
+
+#offline {
+    display: inline-block;
+    width: 33.33%;
+    height: 85px;
+    background-color: #F55D5D;
+    border-top-right-radius: 50px;
+}
+
+#all h2, #online h2, #offline h2 {
+
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+}
+
 .resultContainer {
     height: auto;
     margin-right: 10%;
