@@ -1,5 +1,87 @@
-  
 
+
+    var allStreams = document.getElementById('all');
+    var onlineStreams = document.getElementById('online');
+    var offlineStreams = document.getElementById('offline');
+
+    //header event-listeners
+    allStreams.addEventListener('click', allShow, false);
+    onlineStreams.addEventListener('click', onlineShow, false);
+    offlineStreams.addEventListener('click', offlineShow, false);
+
+    //header event handler functions
+
+    // makes all stream containers visible again
+    function allShow() {
+
+        //variable
+        var allContainers = document.getElementsByClassName('resultContainer');
+
+        for (i = 0; i < 11; i++) {
+
+            if (allContainers[i].className == "resultContainer offline gone") {
+
+                allContainers[i].className = "resultContainer offline";
+            }
+
+            else if (allContainers[i].className == "resultContainer online gone") {
+
+                allContainers[i].className = "resultContainer online";
+            }
+
+            else if (allContainers[i].className == "resultContainer gone") {
+
+                allContainers[i].className = "resultContainer";
+            }
+        }
+    }
+
+    function onlineShow() {
+
+        //variable
+        var allContainers = document.getElementsByClassName('resultContainer');
+
+        for (i = 0; i < 11; i++) {
+
+            switch (allContainers[i].className) {
+
+                case "resultContainer online gone":
+                    allContainers[i].className = "resultContainer online";
+                    break;
+                case "resultContainer offline":
+                    allContainers[i].className = "resultContainer offline gone";
+                    break;
+                case "resultContainer":
+                    allContainers[i].className = "resultContainer gone";
+            }
+        }
+    }
+
+    function offlineShow() {
+
+        //variable
+        var allContainers = document.getElementsByClassName('resultContainer');
+
+        for (i = 0; i < 11; i++) {
+
+            switch (allContainers[i].className) {
+
+                case "resultContainer online":
+                    allContainers[i].className = "resultContainer online gone";
+                    break;
+                case "resultContainer offline gone":
+                    allContainers[i].className = "resultContainer offline";
+                    break;
+                case "resultContainer":
+                    allContainers[i].className = "resultContainer gone";
+            }
+        }
+    }
+
+
+
+
+    // all Twitch.tv API requests - one for each channel
 
     //test API request: 404 response
      var xhr = new XMLHttpRequest();
@@ -110,6 +192,9 @@ function comster404Info() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -122,6 +207,9 @@ function comster404Info() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -171,6 +259,9 @@ function charionnaInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -183,6 +274,9 @@ function charionnaInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -232,6 +326,9 @@ function castro_1021Info() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -244,6 +341,9 @@ function castro_1021Info() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -293,6 +393,9 @@ function kinggothalionInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -305,6 +408,9 @@ function kinggothalionInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -354,6 +460,9 @@ function lpmassiveInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -366,6 +475,9 @@ function lpmassiveInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -415,6 +527,9 @@ function drlupoInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -427,6 +542,9 @@ function drlupoInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -476,6 +594,9 @@ function exu_kefirInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -488,6 +609,9 @@ function exu_kefirInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -537,6 +661,9 @@ function luminosityInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -549,6 +676,9 @@ function luminosityInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -598,6 +728,9 @@ function montanablack88Info() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -610,6 +743,9 @@ function montanablack88Info() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -659,6 +795,9 @@ function realkraftyyInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -671,6 +810,9 @@ function realkraftyyInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
@@ -720,6 +862,9 @@ function diehahnInfo() {
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
 
+            //set offline status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
         }
 
         // if streamer is ONLINE
@@ -732,6 +877,9 @@ function diehahnInfo() {
             document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
 
             document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+            //set online status class
+            document.getElementById(streamerName).parentNode.className = "resultContainer online";
         }
     }
 }
