@@ -144,3 +144,19 @@ body {
     height: 50px;
     border-radius: 25px;
 }
+
+footer {
+    color: #4F5151;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 150px;
+}
+
+#maker {
+    font-size: 150%;
+}
+
+#copyRight {
+    margin-top: 25px;
+}
