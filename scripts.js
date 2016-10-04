@@ -17,7 +17,7 @@
         //variable
         var allContainers = document.getElementsByClassName('resultContainer');
 
-        for (i = 0; i < 11; i++) {
+        for (i = 0; i < 12; i++) {
 
             if (allContainers[i].className == "resultContainer offline gone") {
 
@@ -41,7 +41,7 @@
         //variable
         var allContainers = document.getElementsByClassName('resultContainer');
 
-        for (i = 0; i < 11; i++) {
+        for (i = 0; i < 12; i++) {
 
             switch (allContainers[i].className) {
 
@@ -62,7 +62,7 @@
         //variable
         var allContainers = document.getElementsByClassName('resultContainer');
 
-        for (i = 0; i < 11; i++) {
+        for (i = 0; i < 12; i++) {
 
             switch (allContainers[i].className) {
 
@@ -82,6 +82,12 @@
 
 
     // all Twitch.tv API requests - one for each channel
+
+    //test API request: freecodecamp
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', 'https://api.twitch.tv/kraken/streams/freecodecamp/?client_id=mlrx1e94dg7yus5yqm26lwpyxrg9j9x');
+     xhr.onreadystatechange = freecodecampInfo;
+     xhr.send();
 
     //test API request: 404 response
      var xhr = new XMLHttpRequest();
@@ -150,6 +156,71 @@
     xhr.onreadystatechange = diehahnInfo;
     xhr.send();
 
+
+    //--------------------------------------------------------------------
+    function freecodecampInfo() {
+
+        var closedText = document.createTextNode('account closed');
+
+
+        // request NOT succesful
+        if(this.readyState == 4 && this.status !== 200) {
+
+            document.getElementById('comster404').childNodes[0].childNodes[3].appendChild(closedText);
+        }
+
+
+        //request SUCCESSFUL
+        if(this.readyState == 4 && this.status == 200) {
+
+            //variables
+            var response = JSON.parse(this.response);
+            var myRe = /channels\/(.*)/;
+            var string = JSON.parse(this.response)._links.channel;
+            var match = myRe.exec(string);
+
+            //dependent variable
+            var streamerName = match[1];
+
+            // // just for reference - - - - - - - - - - - -
+            // console.log(JSON.parse(this.response));
+            //
+            // console.log(streamerName);
+            // // - - - - - - - - - - - - - - - - - - - - - -
+
+            // if streamer is OFFLINE
+            if(response.stream == null) {
+
+                //variables
+                var offlineText = document.createTextNode('offline');
+
+                document.getElementById(streamerName).parentNode.style.backgroundColor = "#F55D5D";
+
+                document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(offlineText);
+
+                //set offline status class
+                document.getElementById(streamerName).parentNode.className = "resultContainer offline";
+
+            }
+
+            // if streamer is ONLINE
+            else if(response.stream !== null) {
+
+                //variables
+                var streamDetailsProperty = 'status'; //status is a keyword...
+                var streamDetails = document.createTextNode(response.stream.channel[streamDetailsProperty]);
+
+                document.getElementById(streamerName).parentNode.style.backgroundColor = "#3FDD90";
+
+                document.getElementById(streamerName).childNodes[0].childNodes[3].appendChild(streamDetails);
+
+                //set online status class
+                document.getElementById(streamerName).parentNode.className = "resultContainer online";
+            }
+        }
+    }
+
+//----------------------------------------------------------------
 
 //--------------------------------------------------------------------
 function comster404Info() {
