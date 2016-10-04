@@ -166,7 +166,10 @@
         // request NOT succesful
         if(this.readyState == 4 && this.status !== 200) {
 
-            document.getElementById('comster404').childNodes[0].childNodes[3].appendChild(closedText);
+            document.getElementById('freecodecamp').childNodes[0].childNodes[3].appendChild(closedText);
+
+            // no img element if offline
+            document.getElementById('freecodecampPic').style.display = "none";
         }
 
 
@@ -182,14 +185,17 @@
             //dependent variable
             var streamerName = match[1];
 
-            // // just for reference - - - - - - - - - - - -
-            // console.log(JSON.parse(this.response));
-            //
-            // console.log(streamerName);
-            // // - - - - - - - - - - - - - - - - - - - - - -
+            // just for reference - - - - - - - - - - - -
+            console.log(JSON.parse(this.response));
+
+            console.log(streamerName);
+            // - - - - - - - - - - - - - - - - - - - - - -
 
             // if streamer is OFFLINE
             if(response.stream == null) {
+
+                // no img element if offline
+                document.getElementById('freecodecampPic').style.display = "none";
 
                 //variables
                 var offlineText = document.createTextNode('offline');
@@ -205,6 +211,8 @@
 
             // if streamer is ONLINE
             else if(response.stream !== null) {
+
+                document.getElementById('freecodecampPic').src = "https://static-cdn.jtvnw.net/jtv_user_pictures/charionna-profile_image-fbf2e2cb5773adc7-300x300.jpeg";
 
                 //variables
                 var streamDetailsProperty = 'status'; //status is a keyword...
@@ -232,6 +240,9 @@ function comster404Info() {
     if(this.readyState == 4 && this.status !== 200) {
 
         document.getElementById('comster404').childNodes[0].childNodes[3].appendChild(closedText);
+
+        // no img element if offline
+        document.getElementById('comster404Pic').style.display = "none";
     }
 
 
@@ -291,14 +302,15 @@ function comster404Info() {
 //--------------------------------------------------------------------
 function charionnaInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('charionna').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('charionnaPic').style.display = "none";
     }
 
 
@@ -323,6 +335,9 @@ function charionnaInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('charionnaPic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -337,6 +352,9 @@ function charionnaInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('charionnaPic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -358,14 +376,15 @@ function charionnaInfo() {
 //--------------------------------------------------------------------
 function castro_1021Info() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('castro_1021').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('castro_1021Pic').style.display = "none";
     }
 
 
@@ -390,6 +409,9 @@ function castro_1021Info() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('castro_1021Pic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -404,6 +426,9 @@ function castro_1021Info() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('castro_1021Pic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -425,14 +450,15 @@ function castro_1021Info() {
 //--------------------------------------------------------------------
 function kinggothalionInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('kinggothalion').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('kinggothalionPic').style.display = "none";
     }
 
 
@@ -457,6 +483,9 @@ function kinggothalionInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('kinggothalionPic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -471,6 +500,9 @@ function kinggothalionInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('kinggothalionPic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -492,14 +524,15 @@ function kinggothalionInfo() {
 //--------------------------------------------------------------------
 function lpmassiveInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('lpmassive').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('lpmassivePic').style.display = "none";
     }
 
 
@@ -524,6 +557,9 @@ function lpmassiveInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('lpmassivePic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -538,6 +574,9 @@ function lpmassiveInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('lpmassivePic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -559,14 +598,15 @@ function lpmassiveInfo() {
 //--------------------------------------------------------------------
 function drlupoInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('comster404').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('drlupoPic').style.display = "none";
     }
 
 
@@ -591,6 +631,9 @@ function drlupoInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('drlupoPic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -605,6 +648,9 @@ function drlupoInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('drlupoPic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -626,14 +672,15 @@ function drlupoInfo() {
 //--------------------------------------------------------------------
 function exu_kefirInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('exu_kefir').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('exu_kefirPic').style.display = "none";
     }
 
 
@@ -658,6 +705,9 @@ function exu_kefirInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('exu_kefirPic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -672,6 +722,9 @@ function exu_kefirInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('exu_kefirPic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -693,14 +746,15 @@ function exu_kefirInfo() {
 //--------------------------------------------------------------------
 function luminosityInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('luminosity').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('luminosityPic').style.display = "none";
     }
 
 
@@ -725,6 +779,9 @@ function luminosityInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('luminosityPic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -739,6 +796,9 @@ function luminosityInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('luminosityPic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -760,14 +820,15 @@ function luminosityInfo() {
 //--------------------------------------------------------------------
 function montanablack88Info() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('montanablack88').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('montanablack88Pic').style.display = "none";
     }
 
 
@@ -792,6 +853,9 @@ function montanablack88Info() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('montanablack88Pic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -806,6 +870,9 @@ function montanablack88Info() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('montanablack88Pic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -827,14 +894,15 @@ function montanablack88Info() {
 //--------------------------------------------------------------------
 function realkraftyyInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('realkraftyy').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('realkraftyyPic').style.display = "none";
     }
 
 
@@ -859,6 +927,9 @@ function realkraftyyInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('realkraftyyPic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -873,6 +944,9 @@ function realkraftyyInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('realkraftyyPic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
@@ -894,14 +968,15 @@ function realkraftyyInfo() {
 //--------------------------------------------------------------------
 function diehahnInfo() {
 
-
+    var closedText = document.createTextNode('account closed');
 
     // request NOT succesful
     if(this.readyState == 4 && this.status !== 200) {
 
-        //  console.log('This is working');
+        document.getElementById('diehahn').childNodes[0].childNodes[3].appendChild(closedText);
 
-        setTimeout(callSuccessChecker, 9000);
+        // no img element if offline
+        document.getElementById('diehahnPic').style.display = "none";
     }
 
 
@@ -926,6 +1001,9 @@ function diehahnInfo() {
         // if streamer is OFFLINE
         if(response.stream == null) {
 
+            // no img element if offline
+            document.getElementById('diehahnPic').style.display = "none";
+
             //variables
             var offlineText = document.createTextNode('offline');
 
@@ -940,6 +1018,9 @@ function diehahnInfo() {
 
         // if streamer is ONLINE
         else if(response.stream !== null) {
+
+            // logo img
+            document.getElementById('diehahnPic').src = response.stream.channel.logo;
 
             //variables
             var streamDetailsProperty = 'status'; //status is a keyword...
