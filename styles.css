@@ -37,6 +37,13 @@ body {
     margin-bottom: 0;
 }
 
+#pageHeader {
+    text-align: center;
+    color: #956DB9;
+    font-size: 350%;
+    margin-bottom: 10vh;
+}
+
 .headerContainer {
     display: flex;
     justify-content: space-around;
